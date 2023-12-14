@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<title>School Database</title>
+<style>
+    #mainNavigation a {
+  font-family: 'Cabin', sans-serif;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  text-shadow:1px 1px 2px rgba(0,0,0,0.4)
+}
+
+.dropdown-menu {
+  background:#03727d
+}
+a.dropdown-toggle {
+  color:#dfdfdf !important
+}
+a.dropdown-item:hover {
+  color:#03727d !important
+}
+.nav-item a{
+  color:#dfdfdf;
+}
+.nav-item a:hover {
+  color:#fff
+}
+.nav-item{
+  min-width:12vw;
+}
+#mainNavigation {
+  left:0;
+  width:100%;
+  z-index:123;
+  padding-bottom:120px;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+#navbarNavDropdown.collapsing .navbar-nav,
+#navbarNavDropdown.show .navbar-nav{
+  background:#037582;
+  padding:12px;
+}
+.hidden-form {
+    display: none;
+}
+    
+h1{
+    text-align: center;
+}
+
+#classForm{
+    text-align: center;
+}
+
+#studentForm{
+    text-align: center;
+}
+
+#parentForm{
+  text-align: center;
+}
+
+#staffForm{
+  text-align: center;
+}
+
+form {
+    text-align: center;
+    margin: 20px;
+}
+
+label, input {
+    display: block;
+    margin: 10px auto; /* Center-align both labels and input fields */
+    text-align: center; /* Center-align text inside input fields */
+}
+
+label {
+    width: 120px; /* Set a width for labels to ensure consistent spacing */
+}
+
+input {
+    width: 200px; /* Adjust the width as needed */
+}
+</style>
+</head>
+<body>
+  <div id="mainNavigation">
+    <nav role="navigation">
+      <div class="py-3 text-center border-bottom">
+      </div>
+    </nav>
+    <div class="navbar-expand-md">
+      <div class="navbar-dark text-center my-2">
+        <button class="navbar-toggler w-75" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
+        </button>
+      </div>
+      <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mx-auto ">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="schoolwebsite.html">Data Addition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="schooledit.html">DATA Editing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="schoolview.html">Data View</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="schooldelete.html">Data Deletion</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              About
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Blog</a></li>
+              <li><a class="dropdown-item" href="#">About Us</a></li>
+              <li><a class="dropdown-item" href="#">Contact us</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<h1>Table Data Viewer</h1>
+
+    
+
+<form action="schoolview.php" method="post" id="view" style="text-align: center;">
+    <label for="table" style="display: block; margin-bottom: 10px;">Choose Table:</label>
+    <select id="table" name="table" style="margin: 0 auto; display: block;">
+        <option value="class">Class</option>
+        <option value="student">Student</option>
+        <option value="parent">Parent</option>
+        <option value="staff">Staff</option>
+        <!-- Add more options for other tables as needed -->
+    </select>
+    <br>
+    <button type="submit">Show Table Data</button>
+</form>
+
+<div id="result">
+    <!-- The server response will be displayed here -->
+</div>
